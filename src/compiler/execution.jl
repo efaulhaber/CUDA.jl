@@ -140,7 +140,7 @@ Adapt.adapt_storage(to::KernelAdaptor, p::CuPtr{T}) where {T} =
 function Adapt.adapt_storage(::KernelAdaptor, xs::DenseCuArray{T,N}) where {T,N}
   # prefetch unified memory as we're likely to use it on the GPU
   # TODO: make this configurable?
-  if is_unified(xs)
+  if is_unified(xs) && false
     # XXX: use convert to pointer and/or prefect(CuArray)
     mem = xs.data[].mem::UnifiedMemory
 
