@@ -564,7 +564,7 @@ function Base.convert(::Type{CuPtr{T}}, managed::Managed{M}) where {T,M}
 
   # accessing memory on another stream: ensure the data is ready and take ownership
   if managed.stream != state.stream
-    maybe_synchronize(managed)
+    # maybe_synchronize(managed)
     managed.stream = state.stream
   end
 
